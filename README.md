@@ -9,3 +9,7 @@
 Js常用小Demo
 
 [Demo](https://lennonover.github.io/lennonover/other/index.html)
+
+CSS3轮播
+
+[Demo](https://lennonover.github.io/lennonover/slider/slider.html)
