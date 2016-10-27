@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Notification</title>
+	<style>
+		p{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		title: "别动神仙说: "<br>
+		body: "这里是body"<br>
+		icon: "http://q4.qlogo.cn/g?b=qq&k=icUjVAN5Ja7BCDQ1ICl8Svw&s=40"<br>
+		tag: "1" // 通知框ID，相同id可替换，而不是出现新的通知框<br>
+		lang: "" // 语言<br>
+		dir: "auto" // 文字方向<br>
+	</p>
+
+	<script>
+	dwindow.onload=function(){
+		if (window.Notification) {  
+		    var addNotice = function() {
+		        if (Notification.permission == "granted") {
+		            var notification = new Notification("通知，", {
+		                body: '你有新的消息',
+		                icon: 'http://tva3.sinaimg.cn/crop.1.9.509.509.180/c15a9505jw1e77ge4mi0hj20e80iyabl.jpg'
+		            });
+		        }    
+		    };
+		    
+		    function notificationInit() {
+		        if (Notification.permission == "granted") {
+		            addNotice();
+		        } else if (Notification.permission != "denied") {
+		            Notification.requestPermission(function (permission) {
+		              addNotice();
+		            });
+		        }
+		    };
+		} else {
+		    alert('浏览器不支持Notification');    
+		}
+		notificationInit();
+	}
+	</script>
+</body>
+</html>
