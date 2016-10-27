@@ -1,0 +1,266 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>lennonover</title>
+ 	<meta name="name" content="content" charset="utf-8">
+ 	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 	<link rel="shortcut icon" type="image/x-icon" href="img/iicon.png" media="screen" /> 
+	<link rel="stylesheet" type="text/css" href="css/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="css/Demo_1.css">
+	<script src="src/jquery-2.0.0.min.js" type="text/javascript" ></script>
+	<script src="src/shCore.js" type="text/javascript"type="text/javascript"></script>
+	<script src="src/shBrushJScript.js" type="text/javascript"></script>
+	<script src="src/shBrushCss.js" type="text/javascript"></script>
+	<script src="src/shBrushXml.js" type="text/javascript"></script>
+	<script src="src/Demo_1.js" type="text/javascript"></script>
+
+ </head>
+ <body>
+ <div class="site-up">
+	<a class="site-up-a" title="返回顶部">
+ 		<img src="img/up.png" height="50" width="50" alt="返回顶部">
+	</a>
+ </div>
+ <div class="site-left">
+ 	<div class="site-sidebar">
+	 	<div class="site-title">
+	 		lennonover
+	 		<div class="site-description">一丿口石砳磊</div>
+	 	</div>
+	 	<hr  color=#EEEEEE>
+	 	<div class="site-nav">
+	 		<form role="search" method="get" class="search-form" action="https://lennonover.github.io/JavaScript/">
+				<label>
+					<span class="screen-reader-text">搜索：</span>
+					<input type="search" class="search-field" placeholder="搜索…" value="" name="s" title="搜索：">
+				</label>
+				<input type="submit" class="search-submit screen-reader-text" value="搜索">
+			</form>
+		 	<ul>
+		 		<li>
+		 			<a class="menu-title">JavaScript</a>
+		 			<ul class="site-javascript">
+						<li onclick="javascript:scroller('header_1', 800);">高亮文本</li>
+						<li onclick="javascript:scroller('header_2', 800);">截取文本省略号</li>
+						<li onclick="javascript:scroller('header_3', 800);">全局统计</li>
+						<li onclick="javascript:scroller('header_4', 800);">把数组按指定的长度分割</li>
+						<li onclick="javascript:scroller('header_5', 800);">JS作用域</li>
+						<li onclick="javascript:scroller('lastEst', 800);">留 言</li>
+					</ul>
+		 		</li>
+		 	</ul>
+		</div>
+		
+	</div>
+</div>
+<div class="site-right">
+	<header class="page-header">
+		<h1 class="header-title">JavaScript</h1>
+		<div class="header-text">
+			<p>此分类是 Javascript 相关技术文章，包括优秀的 Javascript 效果、 <br>使用技巧、浏览器兼容性及 开发中的常见问题。</p>
+		</div>
+	</header>
+	<div class="site-section">
+		<a name="header_1" id="header_1"><h3 class="section-title">高亮文本</h3></a>
+		<div class="section-test">
+			<p class="highlightText">测试高亮文本</p>
+		</div>
+		<pre class="brush: js;">
+			/**
+			 * [设置高亮]
+			 * @param  {[type]} text  [循环的目标]
+			 * @param  {[type]} words [要高亮的字]
+			 * @param  {[type]} tag   [标签类型]
+			 */
+			function highlight(text, words, tag) {
+			  tag = tag || 'span';
+			  var i, len = words.length, re;
+			  for (i = 0; i < len; i++) {
+			    re = new RegExp(words[i], 'g');
+			    if (re.test(text)) {
+			      text = text.replace(re, '<'+ tag +' class="highlight">$&</'+ tag +'>');
+			    }
+			  }
+			  return text;
+			}
+			//取消高亮
+			function unhighlight(text, tag) {
+			  // Default tag if no tag is provided
+			  tag = tag || 'span';
+			  var re = new RegExp('(<'+ tag +'.+?>|<\/'+ tag +'>)', 'g');
+			  return text.replace(re, '');
+			}
+		</pre>
+	</div>
+	<div class="site-section">
+		<a name="header_2" id="header_2"><h3 class="section-title">截取文本省略号</h3></a>
+		<div class="section-test">	
+			<div class="strSplit">脚本允许你根据给定的字符长度截取文本如果文本被截取那么它的后面会自动带上省略号</div>
+		 	<div class="strSplit_s"></div>
+		</div>
+		<pre class="brush: js;">
+			/**
+			 * [excerpt description]
+			 * @param  {[type]} str    [字符]
+			 * @param  {[type]} nwords [限定长度]
+			 * @param  {[type]} type   [split拆分条件]
+			 */
+			function excerpt(str, nwords,type) {
+			  var words = str.split(type);
+			  words.splice(nwords, words.length-1);
+			  return words.join(type) +
+			    (words.length !== str.split(type).length ? '…' : '');
+			}
+		</pre>
+	</div>
+	<div class="site-section">
+		<a name="header_3" id="header_3"><h3 class="section-title">全局统计</h3></a>
+		<div class="section-test">
+			<button class="buttonClick">点我</button>
+	 		<div>点击了 <span class="counter"></span> 下</div>
+	 	</div>
+		<pre class="brush: js;">
+			$(".buttonClick")
+		    .data('counter', 1) 
+		    .click(function() {
+		        var counter = $(this).data('counter'); 
+		        $(this).data('counter', counter + 1); 
+		        $(".counter").html(counter);
+	    	});
+		</pre>
+	</div>
+	<div class="site-section">
+		<a name="header_4" id="header_4"><h3 class="section-title">把数组按指定的长度分割</h3></a>
+		<div class="section-test">
+			<div>chunk([0,1,2,3,4,5,9,8,7],3)</div>
+			<br>
+	 		<div>[[0,1,2],[3,4,5],[9,8,7]]</div>
+	 	</div>
+		<pre class="brush: js;">
+			function chunk(arr, size) {
+			  var tempArr = [],
+			      newArr = [],
+			      len = arr.length,
+			      i = 0;
+			  while(i < len) {
+			    tempArr = arr.splice(0, size);
+			    newArr.push(tempArr);
+			    i += size;
+			  }
+			  return newArr;
+			}
+		</pre>
+	</div>
+	<div class="site-section">
+		<a name="header_5" id="header_5"><h3 class="section-title">JS作用域</h3></a>
+		<div class="section-test">
+			<h3>JavaScript的作用域链</h3>
+			<br>
+			JavaScript需要查询一个变量x时，首先会查找作用域链的第一个对象，如果以第一个对象没有定义x变量，JavaScript会继续查找有没有定义x变量，如果第二个对象没有定义则会继续查找，以此类推。
+			下面的代码涉及到了三个作用域链对象，依次是：inner、rainman、window。
+	 	</div>
+		<pre class="brush: js;">
+			var rain = 1;
+		    function rainman(){
+		        var man = 2;
+		        function inner(){
+		            var innerVar = 4;
+		            //var rain = 5;//函数体内部，局部变量的优先级比同名的全局变量高。
+		            alert(rain);
+		        }
+		        inner();    //调用inner函数 1
+		    }
+		    rainman();    //调用rainman函数
+		</pre>
+		<div class="section-test">
+			<h3>JavaScript没有块级作用域</h3>
+			<br>
+			比如if条件语句，就不算一个独立的作用域.
+			为了解决块级作用域，
+			ES6引入了新的关键字let，用let替代var可以申明一个块级作用域的变量.
+			ES6标准引入了新的关键字const来定义常量，const与let都具有块级作用域：
+	 	</div>
+		<pre class="brush: js;">
+			function func() {
+			  if (true) {
+			    var tmp = 123;
+			  }
+			  console.log(tmp); // 123 var关键字声明的变量有一个变量提升的过程
+			}
+
+			function func() {
+			  if (true) {
+			    let tmp = 123;
+			  }
+			  console.log(tmp); // ReferenceError: tmp is not defined
+			}
+
+			const PI = 3.14;
+			PI = 3; // 某些浏览器不报错，但是无效果！
+			PI; // 3.14
+		</pre>
+		<div class="section-test">
+			<h3>函数中声明的变量在整个函数中都有定义</h3>
+			<br>
+			由于在函数rain内局部变量x在整个函数体内都有定义（ var x= 'rain-man'，进行了声明），所以在整个rain函数体内隐藏了同名的全局变量x。这里之所以会弹出'undefined'是因为，第一个执行alert(x)时，局部变量x仍未被初始化。
+	 	</div>
+	 	<pre class="brush: js;">
+			var x = 1;
+		    function rain(){
+		        alert( x );        //弹出 'undefined'，而不是1
+		        var x = 'rain-man';
+		        alert( x );        //弹出 'rain-man'
+		    }
+		    rain();
+		    //等效于下面
+		    var x = 1;
+		    function rain(){
+			    var x;
+			    alert( x );
+			    x = 'rain-man';
+			    alert( x );
+			}
+		    rain();
+		</pre>
+		<div class="section-test">
+			<h3>未使用var关键字定义的变量都是全局变量、全局变量都是window对象的属性</h3>
+			<br>
+	 	</div>
+	 	<!-- <br>
+	 			<div class="section-test">
+	 				<h3></h3>
+	 				<br>
+	 	</div>
+	 	<pre class="brush: js;">
+	 				
+	 			</pre> -->
+	</div>
+	<div class="site-section">
+		<a name="lastEst" id="lastEst"></a>
+		<div id="comments"> 
+			<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="<?php echo $this->cid;?>" data-title="<?php echo $this->title;?>" data-author-key="<?php echo $this->authorId;?>" data-url=""></div>
+			<!-- 多说评论框 end -->
+			<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+			<script type="text/javascript">
+			var duoshuoQuery = {short_name:"lennonover"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();
+				</script>
+			<!-- 多说公共JS代码 end -->
+
+			<?php else: ?>
+			<h4><?php _e('评论已关闭'); ?></h4> 
+			<?php endif; ?> 
+			</div>
+	</div>
+</div>
+ </body>
+ </html>
