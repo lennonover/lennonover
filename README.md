@@ -18,6 +18,10 @@
 
     [Demo](https://lennonover.github.io/lennonover/animation/step.html)  
 
+- animation跳动
+
+    [Demo](https://lennonover.github.io/lennonover/animation/showTiaod.html)
+
 - Notification	
 	HTML5 Notification提示框	
 
