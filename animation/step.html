@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            padding:100px;
+        }
+        li{
+            list-style-type:none;
+        }
+        ul{
+            width:600px;
+            height:250px;
+            overflow:hidden;
+        }
+        li{
+            float:left;
+            width:120px;
+            -webkit-transition: width 0.5s ease-out;
+            -moz-transition: width 0.5s ease-out;
+            -ms-transition: width 0.5s ease-out;
+            -o-transition: width 0.5s ease-out;
+            transition: width 0.5s ease-out;
+        }
+        li:hover{
+            width:400px;
+        }
+        ul:hover li:not(:hover){
+            width:50px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#"><img src="img/hero10.jpg" height="300" width="600" alt=""/></a></li>
+    <li><a href="#"><img src="img/hero11.jpg" height="300" width="600" alt=""/></a></li>
+    <li><a href="#"><img src="img/hero12.jpg" height="300" width="600" alt=""/></a></li>
+    <li><a href="#"><img src="img/hero13.jpg" height="300" width="600" alt=""/></a></li>
+    <li><a href="#"><img src="img/hero14.jpg" height="300" width="600" alt=""/></a></li>
+</ul>
+</body>
+</html>
