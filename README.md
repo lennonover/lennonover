@@ -27,4 +27,6 @@
 
 	[Demo](https://lennonover.github.io/lennonover/Notification/Notification.html)
 
-- FHhelper 公司OA系统chrome扩展插件
+- FHhelper 
+自己写了个公司OA系统chrome扩展插件
+增加上班签到提醒，员工生日，节假日彩蛋，OA事件Notification提示框提醒等功能
