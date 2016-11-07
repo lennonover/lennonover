@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>FiberHome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/interface-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <style>
+            .slectTime{
+                margin-bottom: 10px;
+            }
+            .slectTime input{
+                margin-left:15px; 
+                text-align: center;
+                border:1px solid #EAEAEA;
+            }
+            .conTime input{
+			
+				margin-right: 15px;
+            }
+            .slectTime label{
+            	font-size: 1em;
+            }
+            .clickBut{
+                color: #fff !important;
+                height: 
+            }
+            .clickBut:hover{
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body class="scroll-assist" data-reveal-selectors="h2,.btn" data-reveal-timing="1000">
+        <a id="top"></a>
+        <div class="loader"></div>
+        <nav class="transition--fade">
+            <div class="nav-bar" data-fixed-at="200">
+                <div class="nav-module logo-module left">
+                    <a href="">
+                        <img class="logo logo-dark" alt="logo" src="img/1.png" />
+                        <img class="logo logo-light" alt="logo" src="img/1.png" />
+                    </a>
+                </div>
+                
+                <!--end nav module-->
+                <div class="nav-module right">
+                    <a href="#" class="nav-function" data-notification-link="cart-overview">
+                        
+                        <span>Cart</span>
+                    </a>
+                </div>
+                <div class="nav-module right">
+                    <a href="#" class="nav-function modal-trigger" data-modal-id="search-form">
+                        <i class="interface-search icon icon--sm"></i>
+                        <span>Search</span>
+                    </a>
+                </div>
+            </div>
+            <!--end nav bar-->
+           
+        </nav>
+        <div class="modal-container search-modal" data-modal-id="search-form">
+            <div class="modal-content bg-white imagebg" data-width="100%" data-height="100%">
+                <div class="pos-vertical-center clearfix">
+                    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center">
+                        <form class="clearfix">
+                            <div class="input-with-icon">
+                                <i class="icon-Magnifi-Glass2 icon icon--sm"></i>
+                                <input type="search" name="query" placeholder="暂时没有搜索内容" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--end of modal-content-->
+        </div>
+        <!--end of modal-container-->
+        <div class="main-container transition--fade">
+            <section class="height-60">
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text-center">
+                            <h1>FiberHome助手</h1>
+                            <p class="lead">
+                                <form action="" class="signForm">
+                                    <div class="slectTime conTime">
+                                        <label for="">签到时间(24小时制)</label>
+                                        <div>
+                                            <input type="datetime"  name="sInH">
+                                            时
+                                            <input type="datetime"  name="sInM">
+                                            分
+                                        </div>
+                                    </div>
+                                    <div class="slectTime conTime">
+                                        <label for="">签退时间(24小时制)</label>
+                                        <div>
+                                            <input type="datetime"  name="sOutH">
+                                            时
+                                            <input type="datetime"  name="sOutM">
+                                            分
+                                        </div>
+                                    </div>
+                                    <div class="slectTime">
+                                        <label for="">上下班打卡选择</label>
+                                        <div>
+                                            <input type="checkbox" value="in"  name="in" >签到
+                                            <input type="checkbox" value="out" name="out" >签退
+                                        </div>
+                                    </div>
+                                    <div class="slectTime">
+                                        <label for="">打卡工作日选择</label>
+                                        <div>
+                                            <input type="checkbox" value="0" name="sun" >周日
+                                            <input type="checkbox" value="6" name="sat" >周六
+                                            <input type="checkbox" value="5" name="fri" >周五
+                                            <input type="checkbox" value="4" name="thur" >周四
+                                            <input type="checkbox" value="3" name="wed" >周三
+                                            <input type="checkbox" value="2" name="tues" >周二
+                                            <input type="checkbox" value="1" name="mon" >周一
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="clickBut btn btn--primary" >确定</a>
+                                    </div>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="height-80 imagebg parallax" data-overlay="5">
+                <div class="background-image-holder">
+                    <img alt="pic" src="img/hero23.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h2>打造弹性自由的工作时间&hellip;</h2>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="height-80 imagebg parallax" data-overlay="5">
+                <div class="background-image-holder">
+                    <img alt="pic" src="img/hero10.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h2>对工作忘记签到说NO</h2>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="height-80 imagebg parallax" data-overlay="5">
+                <div class="background-image-holder">
+                    <img alt="pic" src="img/hero3.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h2>对迟到说NO</h2>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="height-80 imagebg parallax" data-overlay="5">
+                <div class="background-image-holder">
+                    <img alt="pic" src="img/hero1.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h2>对加班说NO</h2>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <section class="height-80 imagebg parallax" data-overlay="5">
+                <div class="background-image-holder">
+                    <img alt="pic" src="img/hero8.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h2>所以来体验下吧</h2>
+                            <a class="btn btn--primary" href="#">
+                                <span class="btn__text">
+                                    我已了解
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <footer class="bg--dark footer-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-4">
+                            <!-- <img alt="logo" class="logo" src="img/1.png" /> -->
+                            <p>
+                                <em>FiberHome StarrySky Team</em>
+                            </p>
+                            <ul class="footer__navigation">
+                                <li>
+                                    <a href="#">
+                                        <span>关于我们</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>服务</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>取得联系</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>加入我们</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-8">
+                            <h6>最近更新</h6>
+                            <div class="twitter-feed">
+                                <div class="tweets-feed" data-widget-id="492085717044981760" data-amount="2"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1 col-sm-12">
+                            <h6>订阅</h6>
+                            <p>
+                                免费获得更新
+                            </p>
+                            <form class="form--merge form--no-labels" action="http://mrareco.createsend.com/t/d/s/kieth/" method="post" id="subForm" data-error="Please fill all fields correctly." data-success="Thanks for signing up! Please check your inbox for confirmation email.">
+                                <p>
+                                    <label for="fieldEmail">Email Address</label>
+                                    <br />
+                                    <input class="col-md-8 col-sm-6 validate-required validate-email" id="fieldEmail" name="cm-kieth-kieth" type="email" required />
+                                </p>
+                                <p>
+                                    <button type="submit">Go</button>
+                                </p>
+                            </form>
+                            <!-- <h6>加入我们</h6> -->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                <div class="footer__lower">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 text-center-xs">
+                                <span class="type--fine-print">&copy; 
+                                    <span class="update-year">2016</span> FiberHome - </span>
+                            </div>
+                            <div class="col-sm-6 text-right text-center-xs">
+                                <a href="#top" class="inner-link top-link">
+                                    <i class="interface-up-open-big"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end of row-->
+                    </div>
+                    <!--end of container-->
+                </div>
+            </footer>
+        </div>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/isotope.min.js"></script>
+        <script src="js/ytplayer.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/lightbox.min.js"></script>
+        <script src="js/twitterfetcher.min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/scrollreveal.min.js"></script>
+        <script src="js/parallax.js"></script>
+        <script src="js/scripts.js"></script>
+        <script type="text/javascript" src="application.js"></script>
+        <script type="text/javascript" src="options.js"></script>
+    </body>
+</html>

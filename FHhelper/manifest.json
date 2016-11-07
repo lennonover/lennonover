@@ -1,0 +1,31 @@
+{
+    // 必须的字段
+      "name": "FiberHome助手",
+      "version": "0.1",
+      "manifest_version": 2,
+      // 建议提供的字段
+      "description": "你懂的。。",
+      "icons": {
+          "48": "img/1.png" ,
+          "16" : "img/1.png"      
+      },
+      //  "default_locale": "en",   指定这个扩展保的缺省字符串的子目录：_lcoales。如果扩展有_locales目录，这个字段是必须的。如果没有_locales目录，这个字段是必须不存在的。
+      // 多选一，或者都不提供
+      "browser_action": {
+        "default_icon": "img/1.png" ,
+        "default_title": "FiberHome助手",
+        "default_popup": "index.html"
+      },
+      "permissions":["http://*/*"],
+      //选项页面
+      "options_page": "options.html",
+      "permissions": [
+        "storage"
+      ],
+      "content_scripts": [
+      {
+        "matches":["http://172.16.30.102:8080/weboa/auth/login!loginSuccess.action"],
+        "js":["application.js","test.user.js"]
+      }
+      ]
+}

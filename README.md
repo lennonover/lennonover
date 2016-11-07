@@ -27,15 +27,4 @@
 
 	[Demo](https://lennonover.github.io/lennonover/Notification/Notification.html)
 
-<<<<<<< HEAD
-[粒子动态背景](https://lennonover.github.io/lennonover/particle/particle-bg.html)
-
-Js常用小Demo
-
-[Demo](https://lennonover.github.io/lennonover/other/index.html)
-
-CSS3轮播
-
-[Demo](https://lennonover.github.io/lennonover/slider/slider.html)
-=======
->>>>>>> master
+- FHhelper 公司OA系统chrome扩展插件
