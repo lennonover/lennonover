@@ -2,6 +2,10 @@
 
 ## particle
 
+- canvas时钟
+    锤子时钟
+    [DEMO](https://lennonover.github.io/lennonover/canvas_time/time.html)
+
 - 粒子
 
 	[粒子动态背景](https://lennonover.github.io/lennonover/particle/particle-bg.html)

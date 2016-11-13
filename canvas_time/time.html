@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>canvas时钟</title>
+  <style> 
+     body {
+        background: #dddddd;
+     }
+     #canvas {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        margin: 0px;
+        background: #fff;
+        overflow: hidden;
+     }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400">
+    Canvas not supported
+  </canvas>
+<script>
+  var canvas = document.getElementById('canvas'),
+      context = canvas.getContext('2d'),
+      FONT_HEIGHT = 15,
+      MARGIN = 35,
+      HAND_TRUNCATION = 60,
+      HOUR_HAND_TRUNCATION = 44,
+      NUMERAL_SPACING = 0,
+      RADIUS = canvas.width/2 - MARGIN,
+      HAND_RADIUS = RADIUS + NUMERAL_SPACING;
+  var app={
+    init:function(){
+      var that = this;
+      context.font = FONT_HEIGHT + 'px Arial';
+      setInterval(function(){
+          that.drawClock()
+      }, 1000);
+    },
+    drawCircle:function(){
+      //内圆绘制表盘底色
+      context.beginPath();
+      context.arc(canvas.width/2, canvas.height/2,
+                 RADIUS, 0, Math.PI*2, true);
+      var lingrad = context.createRadialGradient(200, 200, 140, 200, 200, 165);
+      lingrad.addColorStop(0.1, '#fff');  
+      lingrad.addColorStop(1, '#f8f8f8');
+      context.shadowOffsetX = 0;
+      context.shadowOffsetY = 0;
+      context.shadowColor = 'rgba(255,255,255,0.1)';
+      context.shadowBlur = 0;
+      context.fillStyle = lingrad;
+      context.strokeStyle = "#d5d5d5";
+      context.fill();
+      context.stroke();
+    },
+    drawCircleB:function(){
+      //外圆
+      context.beginPath();
+      context.arc(canvas.width/2, canvas.height/2,
+                 185, 0, Math.PI*2, true);
+      var lingrad = context.createRadialGradient(200, 200,180, 200, 200, 200);
+      lingrad.addColorStop(0, '#fcfcfc');
+      lingrad.addColorStop(1, '#ffffff');
+      context.shadowOffsetX = 0;
+      context.shadowOffsetY = 0;
+      context.shadowColor = 'rgba(255,255,255,0.1)';
+      context.shadowBlur = 0;
+      context.fillStyle = lingrad;
+      context.strokeStyle = "#d5d5d5";
+      context.lineWidth = 1;
+      context.fill();
+      context.stroke();      
+    },
+    drawNumerals:function(){
+      //数字
+      var numerals = [ "", " ", 3," ", " ", "", " ", " ", "" , " " ," ", 12 ],
+      angle = 0,
+      numeralWidth = 0;
+
+      numerals.forEach(function(numeral) {
+        angle = Math.PI/6 * (numeral-3);
+        numeralWidth = context.measureText(numeral).width;
+        context.fillStyle = "#4b4b4b";
+        context.fillText(numeral, 
+        200  + Math.cos(angle)*(140) - numeralWidth/2,
+        200  + Math.sin(angle)*(140) + FONT_HEIGHT/3);
+        context.strokeText(numeral, 
+        200  + Math.cos(angle)*(140) - numeralWidth/2,
+        200  + Math.sin(angle)*(140) + FONT_HEIGHT/3);
+        context.lineWidth = 1;
+        context.strokeStyle = "#575757";
+        context.font = "24px Arial";
+      });
+    },
+    drawCenter:function() {
+      //中间小圆
+       context.beginPath();
+       context.arc(canvas.width/2, canvas.height/2, 5, 0, Math.PI*2, true);
+       context.fillStyle = "#bc595c";
+       context.strokeStyle = "#bc595c";
+       context.fill();
+    },
+    drawCenterB:function() {
+      //中间大圆
+       context.beginPath();
+       context.arc(canvas.width/2, canvas.height/2, 12, 0, Math.PI*2, true);
+       context.fillStyle = "#575757";
+       context.strokeStyle = "#414141";
+       context.lineWidth = 1;
+       context.fill();
+       context.stroke();
+    },
+    drawHand:function(loc, isHour) {
+        //时、分指针
+        var angle = (Math.PI*2) * (loc/60) - Math.PI/2;
+        var handRadius;
+        switch (isHour) {
+          case "h":
+          context.beginPath()
+          handRadius = RADIUS - HAND_TRUNCATION-HOUR_HAND_TRUNCATION
+          context.lineWidth = 15;
+          context.strokeStyle = "#575757";
+          context.shadowOffsetX = 4;
+          context.shadowOffsetY = 4;
+          context.shadowColor = 'rgba(0,0,0,0.1)';
+          context.shadowBlur = 3;
+          context.moveTo(canvas.width/2, canvas.height/2);
+          context.lineTo(canvas.width/2  + Math.cos(angle)*handRadius, 
+                        canvas.height/2 + Math.sin(angle)*handRadius);
+          context.lineCap="round";
+          context.stroke();
+          context.closePath();
+          break;
+          case "m":
+          context.beginPath()
+          handRadius = RADIUS - HAND_TRUNCATION
+          context.lineWidth = 15;
+          //context.fillStyle = "#575757";
+          context.strokeStyle = "#575757";
+          context.fill();
+          context.shadowOffsetX = 4;
+          context.shadowOffsetY = 4;
+          context.shadowColor = 'rgba(0,0,0,0.1)';
+          context.shadowBlur = 3;
+          context.moveTo(canvas.width/2, canvas.height/2);
+          context.lineTo(canvas.width/2  + Math.cos(angle)*handRadius, 
+                        canvas.height/2 + Math.sin(angle)*handRadius);
+          context.stroke();
+          context.closePath();
+          break;
+        }
+    },
+    drawS:function(){
+      //秒指针 为了在最上层 独立方法
+      var date = new Date;
+      var angle = (Math.PI*2) * (date.getSeconds()/60) - Math.PI/2;
+      var handRadius;
+      context.beginPath()
+      handRadius = RADIUS - 40
+      context.lineWidth = 4;
+      context.shadowOffsetX = 4;
+      context.shadowOffsetY = 4;
+      context.shadowColor = 'rgba(0,0,0,0.1)';
+      context.shadowBlur = 3;
+      context.fillStyle = "#bc595c";
+      context.strokeStyle = "#bc595c";
+      context.fill();
+      context.moveTo(canvas.width/2, canvas.height/2);
+      context.lineTo(canvas.width/2  + Math.cos(angle)*handRadius, 
+                    canvas.height/2 + Math.sin(angle)*handRadius);
+      context.lineCap="round";
+      context.stroke();
+      context.closePath();
+    },
+    drawHands:function() {
+      var date = new Date,
+         hour = date.getHours();
+      hour = hour > 12 ? hour - 12 : hour;
+      this.drawHand(hour*5 + (date.getMinutes()/60)*5, "h", 0.5);
+      this.drawHand(date.getMinutes(), "m", 0.5);
+    },
+    drawClock:function() {
+      context.clearRect(0,0,canvas.width,canvas.height);
+      this.drawCircleB();
+      this.drawCircle();       
+      this.drawHands();
+      this.drawCenterB()
+      this.drawCenter();
+      this.drawS();
+      this.drawNumerals();
+    }
+  }
+  app.init();
+</script>
+
+</body>
+</html>
