@@ -40,4 +40,6 @@
     
     [Demo](https://lennonover.github.io/lennonover/echarts_map/index.html)
 
-—
+— lazyload
+    图片懒加载
+    [Demo](https://lennonover.github.io/lennonover/lazyload/lazyload.html)
