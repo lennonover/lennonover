@@ -2,13 +2,14 @@
 
 ## particle
 
-- canvas时钟
-    锤子时钟
-    [DEMO](https://lennonover.github.io/lennonover/canvas_time/time.html)
+- canvas时钟      
+    锤子时钟        
+
+    [Demo](https://lennonover.github.io/lennonover/canvas_time/time.html)
 
 - 粒子
 
-	[粒子动态背景](https://lennonover.github.io/lennonover/particle/particle-bg.html)
+	[Demo](https://lennonover.github.io/lennonover/particle/particle-bg.html)
 
 - Js常用小Demo
 
@@ -40,6 +41,7 @@
     
     [Demo](https://lennonover.github.io/lennonover/echarts_map/index.html)
 
-— lazyload
+- lazyload
     图片懒加载
+
     [Demo](https://lennonover.github.io/lennonover/lazyload/lazyload.html)
