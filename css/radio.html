@@ -4,7 +4,151 @@
     <meta charset="utf-8">
     <title>CSS 打分 Radio换样式</title>
   </head>
+  <style media="screen">
+  .radio-beauty-container{
+    font-size:0
+  }
+  .radio-beauty-container .radio-beauty:hover,
+  .radio-beauty-container input[type="radio"]:checked+.radio-beauty{
+    padding:2px;
+    background-color:green;
+    background-clip:content-box
+  }
+  .radio-beauty-container .radio-name{
+    vertical-align:middle;
+    font-size:16px
+  }.radio-beauty-container
+  .radio-beauty{
+    width:18px;
+    height:18px;
+    box-sizing:border-box;
+    display:inline-block;
+    border:1px solid green;
+    vertical-align:middle;
+    margin:0 15px 0 3px;
+    border-radius:50%
+  }
+  .radio-beauty-container .radio-beauty:hover{
+    box-shadow:0 0 7px green
+  }
+  /*评分*/
+  .rating {
+       font-size: 0;
+       display: table;
+   }
+
+   .rating > label {
+       color: #ddd;
+       float: right;
+   }
+
+   .rating > label:before {
+       padding: 5px;
+       font-size: 24px;
+       line-height: 1em;
+       display: inline-block;
+       content: "★";
+   }
+
+   .rating > input:checked ~ label,
+   .rating:not(:checked) > label:hover,
+   .rating:not(:checked) > label:hover ~ label {
+       color: #FFD700;
+   }
+
+   .rating > input:checked ~ label:hover,
+   .rating > label:hover ~ input:checked ~ label,
+   .rating > input:checked ~ label:hover ~ label {
+       opacity: 0.5;
+   }
+    /*显示评分*/
+   .star-rating {
+        unicode-bidi: bidi-override;
+        color: #ddd;
+        font-size: 0;
+        height: 25px;
+        position: relative;
+        display: table;
+        padding: 0;
+        text-shadow: 0px 1px 0 #a2a2a2;
+    }
+
+    .star-rating span {
+        padding: 5px;
+        font-size: 20px;
+    }
+
+    .star-rating span:after {
+        content: "★";
+    }
+
+    .star-rating-top {
+        color: #FFD700;
+        padding: 0;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .star-rating-bottom {
+        padding: 0;
+        display: block;
+        z-index: 0;
+    }
+  </style>
   <body>
-    <h2></h2>
+    <h2>Radio</h2>
+    <div class="radio-beauty-container">
+        <label>
+            <span class="radio-name">选项一</span>
+            <input type="radio" name="radioName" id="radioName1" hidden/>
+            <label for="radioName1" class="radio-beauty"></label>
+        </label>
+        <label>
+            <span class="radio-name">选项二</span>
+            <input type="radio" name="radioName" id="radioName2" hidden/>
+            <label for="radioName2" class="radio-beauty"></label>
+        </label>
+        <label>
+            <span class="radio-name">选项三</span>
+            <input type="radio" name="radioName" id="radioName3" hidden/>
+            <label for="radioName3" class="radio-beauty"></label>
+        </label>
+    </div>
+
+    <h2>评分</h2>
+    <div class="rating">
+       <input type="radio" id="star5" name="rating" value="5" hidden/>
+       <label for="star5"></label>
+       <input type="radio" id="star4" name="rating" value="4" hidden/>
+       <label for="star4"></label>
+       <input type="radio" id="star3" name="rating" value="3" hidden/>
+       <label for="star3"></label>
+       <input type="radio" id="star2" name="rating" value="2" hidden/>
+       <label for="star2"></label>
+       <input type="radio" id="star1" name="rating" value="1" hidden/>
+       <label for="star1"></label>
+   </div>
+   <h2>显示评分</h2>
+   <div class="star-rating">
+       <div class="star-rating-top" style="width:50%">
+           <span></span>
+           <span></span>
+           <span></span>
+           <span></span>
+           <span></span>
+       </div>
+       <div class="star-rating-bottom">
+           <span></span>
+           <span></span>
+           <span></span>
+           <span></span>
+           <span></span>
+       </div>
+   </div>
   </body>
 </html>
